@@ -409,25 +409,7 @@ def main():
 
 
     
-    if enabled_file_upload_message:
-        uploaded_file = st.sidebar.file_uploader(
-            enabled_file_upload_message,
-            type=[
-                "txt",
-                "pdf",
-                "png",
-                "jpg",
-                "jpeg",
-                "csv",
-                "json",
-                "geojson",
-                "xlsx",
-                "xls",
-            ],
-            disabled=st.session_state.in_progress,
-        )
-    else:
-        uploaded_file = None
+    
 
     if user_msg:
         render_chat()
@@ -437,8 +419,6 @@ def main():
         st.session_state.chat_log.append({"name": "user", "msg": user_msg})
 
         file = None
-        if uploaded_file is not None:
-            file = handle_uploaded_file(uploaded_file)
         run_stream(user_msg, file)
         
         st.session_state.in_progress = False
