@@ -13,9 +13,9 @@ import pymupdf4llm
 
 file_id_vd = 'file_id'
 
-vector_store_id = st.secrets("OPENAI_VECTOR_STORE_ID")
-assistant_id = st.secrets("HELPER_ASSISTANT_ID")
-make_api_key = st.secrets("MAKE_API_KEY")
+vector_store_id = st.secrets["OPENAI_VECTOR_STORE_ID"]
+assistant_id = st.secrets["HELPER_ASSISTANT_ID"]
+make_api_key = st.secrets["MAKE_API_KEY"]
 
 #vector_store_id = os.environ.get("OPENAI_VECTOR_STORE_ID")
 #assistant_id = os.environ.get("HELPER_ASSISTANT_ID")
