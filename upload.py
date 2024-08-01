@@ -60,20 +60,19 @@ def pdf_to_txt(pdf_file_to_parse):
 
 def upload_to_openai(vector_store_file):
     #Set up OpenAI
-    #openai.api_key = open_ai_key
-    client = openai(api_key=open_ai_key)
+    openai.api_key = open_ai_key
 
     # Upload file to OpenAI
-    response = client.files.create(file=vector_store_file, purpose='assistants')
+    response = openai.files.create(file=vector_store_file, purpose='assistants')
     global file_id_vd
     file_id_vd = response.id
 
-    thread = client.beta.threads.create()
+    thread = openai.beta.threads.create()
 
     print(file_id_vd)
        
 
-    message = client.beta.threads.messages.create(
+    message = openai.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
         content=f"Always answer with the following: Resume of *insert name of candidate* has been succesfully parsed and stored in the database.",
@@ -85,7 +84,7 @@ def upload_to_openai(vector_store_file):
         ]
     )
     
-    run = client.beta.threads.runs.create_and_poll(
+    run = openai.beta.threads.runs.create_and_poll(
         thread_id=thread.id,
         assistant_id=assistant_id,
         instructions="You are a helpful AI assistant."
@@ -93,7 +92,7 @@ def upload_to_openai(vector_store_file):
     )
 
     if run.status == 'completed':
-        messages = client.beta.threads.messages.list(
+        messages = openai.beta.threads.messages.list(
             thread_id=thread.id
         )
         for message in messages.data:
