@@ -63,7 +63,7 @@ def upload_to_openai(vector_store_file):
     openai.api_key = open_ai_key
 
     # Upload file to OpenAI
-    response = openai.files.create(file=vector_store_file, purpose='assistants')
+    response = openai.files.create(file=vector_store_file, purpose='assistants', api_type="openai")
     global file_id_vd
     file_id_vd = response.id
 
