@@ -60,7 +60,7 @@ def pdf_to_txt(pdf_file_to_parse):
 
 def upload_to_openai(vector_store_file):
     #Set up OpenAI
-    openai.OpenAI(api_key=open_ai_key)
+    openai.api_key = open_ai_key
 
     # Upload file to OpenAI
     response = openai.files.create(file=vector_store_file, purpose='assistants')
