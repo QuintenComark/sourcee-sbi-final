@@ -81,7 +81,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-manatal_api_key = st.secrets("MANATAL_API_KEY")
+manatal_api_key = st.secrets["MANATAL_API_KEY"]
 
 
 def str_to_bool(str_input):
@@ -124,17 +124,17 @@ TOOL_MAP = {
 
 
 #Secrets for deployment
-azure_openai_endpoint = st.secrets("AZURE_OPENAI_ENDPOINT")
-azure_openai_key = st.secrets("AZURE_OPENAI_KEY")
-openai_api_key = st.secrets("OPENAI_API_KEY")
-authentication_required = str_to_bool(st.secrets("AUTHENTICATION_REQUIRED", False))
-assistant_id = st.secrets("ASSISTANT_ID")
+azure_openai_endpoint = st.secrets["AZURE_OPENAI_ENDPOINT"]
+azure_openai_key = st.secrets["AZURE_OPENAI_KEY"]
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+authentication_required = str_to_bool(st.secrets["AUTHENTICATION_REQUIRED"])
+assistant_id = st.secrets["ASSISTANT_ID"]
 #assistant_id = st.sidebar.text_input('Enter Assistant ID', '')
-instructions = st.secrets("RUN_INSTRUCTIONS", "")
-assistant_title = st.secrets("ASSISTANT_TITLE", "Nveil.ai Demo Bot")
-enabled_file_upload_message = st.secrets(
-    "ENABLED_FILE_UPLOAD_MESSAGE", "Upload a file"
-)
+#instructions = st.secrets["RUN_INSTRUCTIONS", ""]
+#assistant_title = st.secrets["ASSISTANT_TITLE", "Nveil.ai Demo Bot"]
+#enabled_file_upload_message = st.secrets[
+#    "ENABLED_FILE_UPLOAD_MESSAGE", "Upload a file"
+#]
 
 
 # Load environment variables
@@ -398,8 +398,7 @@ def disable_form():
 
 def main():
    
-
-    st.title(assistant_title)
+    st.title("Sourcee AI Platform")
     user_msg = st.chat_input(
         "Ask Sourcee a question...", on_submit=disable_form, disabled=st.session_state.in_progress
     )
