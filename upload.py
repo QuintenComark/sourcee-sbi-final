@@ -23,6 +23,8 @@ open_ai_key = st.secrets["OPENAI_API_KEY"]
 
 logo = 'https://nveil.ai/wp-content/uploads/2024/07/sourcee-logo-v2.png'
 
+openai.api_type = 'openai'
+
 st.logo(logo)
 
 def docx_to_txt(docx_file_to_parse):
