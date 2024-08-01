@@ -20,11 +20,6 @@ import yaml
 from yaml.loader import SafeLoader
 
 
-
-
-with open('auth.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
-
 load_dotenv()
 
 logo = 'https://nveil.ai/wp-content/uploads/2024/07/sourcee-logo-v2.png'
