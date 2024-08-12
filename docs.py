@@ -27,6 +27,13 @@ with prompts:
         st.write("Help me write an engaging text to introduce 'name of teammember'. The text should be professional and engaging, and should highlight their strengths and experience.")
 with tipstricks:
     st.title("Tips & Tricks")
+    #create a text list of tips & tricks
+    st.write("Here are some tips & tricks to help you get the most out of Sourcee:")
+    
+    st.write("1. Be clear: Make sure your prompts are clear and concise. This will help the AI generate more accurate responses. Sourcee knows that he is an expert recruitment assistant, but he needs to know what you are looking for.")
+    st.write("2. Specify the wanted output to avoid long answers and limit token cost. For example, if you want to know the experience of a candidate, specify that you only want to know the years of experience. Or when asking for a list of candidates, ask Sourcee to only tell you their names, skills, location and current role")
+    st.write("3. To avoid loops and unwanted tool calls, specify your place of search. For example: 'please look for a PowerBi engineer in the documents' or 'please tell me the current role of John from Manatal'")
+    st.write("4. In order to ensure good performance, be sure to clear your chat or refresh once in a while to avoid cluttered chat threads")
 with faq:
     st.title("Freqently Asked Questions")
     st.write("Here are some frequently asked questions:")
