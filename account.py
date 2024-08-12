@@ -34,7 +34,7 @@ if st.session_state.authentication_status:
     upload_page = st.Page("upload.py", title="Upload", icon=":material/delete:")
     docs_page = st.Page("docs.py", title="Docs", icon=":material/help:")
     
-    pg = st.navigation([chat_page, upload_page])
+    pg = st.navigation([chat_page, upload_page, docs_page])
     pg.run()
 elif st.session_state.authentication_status is False:
     st.error('Username/password is incorrect')
