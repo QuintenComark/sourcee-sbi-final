@@ -13,14 +13,17 @@ import pymupdf4llm
 
 file_id_vd = 'file_id'
 
-vector_store_id = st.secrets("OPENAI_VECTOR_STORE_ID")
-assistant_id = st.secrets("HELPER_ASSISTANT_ID")
-make_api_key = st.secrets("MAKE_API_KEY")
+vector_store_id = st.secrets["OPENAI_VECTOR_STORE_ID"]
+assistant_id = st.secrets["HELPER_ASSISTANT_ID"]
+make_api_key = st.secrets["MAKE_API_KEY"]
+open_ai_key = st.secrets["OPENAI_API_KEY"]
 
 #vector_store_id = os.environ.get("OPENAI_VECTOR_STORE_ID")
 #assistant_id = os.environ.get("HELPER_ASSISTANT_ID")
 
 logo = 'https://nveil.ai/wp-content/uploads/2024/07/sourcee-logo-v2.png'
+
+openai.api_type = 'openai'
 
 st.logo(logo)
 
@@ -58,8 +61,8 @@ def pdf_to_txt(pdf_file_to_parse):
 
 
 def upload_to_openai(vector_store_file):
-    # Set up OpenAI API
-    openai.api_key = st.secrets("OPENAI_API_KEY")
+    #Set up OpenAI
+    openai.api_key = open_ai_key
 
     # Upload file to OpenAI
     response = openai.files.create(file=vector_store_file, purpose='assistants')

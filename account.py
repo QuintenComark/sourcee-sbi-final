@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 
-st.write("Welcome to the Sourcee AI platform")
+
 
 def st_authenticator():
     return stauth.Authenticate(
