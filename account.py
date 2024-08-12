@@ -32,6 +32,7 @@ if st.session_state.authentication_status:
     
     chat_page = st.Page("app.py", title="Chat", icon=":material/add_circle:")
     upload_page = st.Page("upload.py", title="Upload", icon=":material/delete:")
+    docs_page = st.Page("docs.py", title="Docs", icon=":material/help:")
     
     pg = st.navigation([chat_page, upload_page])
     pg.run()

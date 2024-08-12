@@ -158,10 +158,7 @@ if azure_openai_endpoint and azure_openai_key:
 else:
     client = openai.OpenAI(api_key=openai_api_key)
 
-my_assistants = client.beta.assistants.list(
-    order="desc",
-    limit="20",
-)
+
 
 
 class EventHandler(AssistantEventHandler):
