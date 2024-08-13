@@ -27,6 +27,11 @@ openai.api_type = 'openai'
 
 st.logo(logo)
 
+#get user name
+username = st.session_state.username
+email = st.secrets['credentials'].to_dict()['usernames'][username]['email']
+st.write(f'Welcome {username}! You are logged in as {email}.')
+
 def docx_to_txt(docx_file_to_parse):
     
     text = docx2txt.process(docx_file_to_parse)
@@ -127,13 +132,16 @@ def upload_to_vector_database(vector_store_file, file_id_vd):
 
     print(vector_store_file)
 
+
+
 def start_make_scenario(text):
     url = "https://eu2.make.com/api/v2/scenarios/1416486/run"
     #url = "https://eu2.make.com/api/v2/scenarios/1562841/run"
 
     payload = json.dumps({
     "data": {
-        "Text": text
+        "Text": text,
+        "Email": email
         }
     })
     headers = {
@@ -149,6 +157,8 @@ def start_make_scenario(text):
 
 def upload_main():
     st.title('File Upload to Parse')
+    #display name of user
+    
 
     vector_store_file = st.file_uploader('Upload a file to the vector store')
     if vector_store_file is not None:

@@ -10,21 +10,39 @@ def st_authenticator():
         st.secrets['cookie']['key'],
         st.secrets['cookie']['expiry_days'],
         st.secrets['preauthorized']
+        
     )
+
+
 
 # Initialize the session state variables if they do not exist
 if "authenticator" not in st.session_state:
     st.session_state.authenticator = st_authenticator()
+    st.session_state.name = None
     st.session_state.authentication_status = None
     st.session_state.username = None
+    st.session_state.email = None
+    
+   
 
 authenticator = st.session_state.authenticator
 
+
 # Only run the login process if the user is not already authenticated
 if st.session_state.authentication_status is None:
+   
+    
     name, authentication_status, username = authenticator.login("main")
+    st.session_state.name = name
     st.session_state.authentication_status = authentication_status
     st.session_state.username = username
+
+    
+    
+    
+  
+    
+
 
 # Check the authentication status and navigate accordingly
 if st.session_state.authentication_status:
