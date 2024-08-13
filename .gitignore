@@ -1,2 +1,4 @@
 .env
 auth.yaml
+secrets.toml
+README.md
