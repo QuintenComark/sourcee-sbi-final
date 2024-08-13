@@ -28,7 +28,9 @@ if st.session_state.authentication_status is None:
 
 # Check the authentication status and navigate accordingly
 if st.session_state.authentication_status:
-    authenticator.logout('**Logout**', 'main', key='unique_key')
+    #set logout button in sidebar
+    
+    authenticator.logout('**Logout**', 'sidebar', key='unique_key')
     
     chat_page = st.Page("app.py", title="Chat", icon=":material/add_circle:")
     upload_page = st.Page("upload.py", title="Upload", icon=":material/delete:")
