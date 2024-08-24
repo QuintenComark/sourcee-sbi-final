@@ -37,4 +37,12 @@ with tipstricks:
 with faq:
     st.title("Freqently Asked Questions")
     st.write("Here are some frequently asked questions:")
-    
+    #create a streamlit expander for each question
+    with st.expander("How do I get started?"):
+        st.write("To get started, simply type your prompt in the chat box and press enter. Sourcee will generate a response based on your prompt.")
+    with st.expander("How can I improve the accuracy of the responses?"):
+        st.write("To improve the accuracy of the responses, make sure your prompts are clear and concise. You can also specify the wanted output to avoid long answers and limit token cost.")
+    with st.expander("How do I clear the chat?"):
+        st.write("To clear the chat, simply click the 'Clear Chat' button at the bottom of the chat window.")
+    with st.expander("Sourcee seems to be stuck in a loop while calling external tools. What should I do?"):
+        st.write("If Sourcee seems to be stuck in a loop while calling external tools, try specifying your place of search. For example: 'please look for a PowerBi engineer in the documents. If that doesn't work, try refreshing the page.")

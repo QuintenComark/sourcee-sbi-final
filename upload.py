@@ -29,8 +29,6 @@ st.logo(logo)
 
 #get user name
 username = st.session_state.username
-email = st.secrets['credentials'].to_dict()['usernames'][username]['email']
-st.write(f'Welcome {username}! You are logged in as {email}.')
 
 def docx_to_txt(docx_file_to_parse):
     
@@ -110,13 +108,6 @@ def upload_to_openai(vector_store_file):
         print(run.status)
 
     st.markdown(answer, unsafe_allow_html=False, help=None)
-
-    print(file_id_vd)
-    #REMOVE THIS CODE AFTER TESTING
-    #openai.files.delete(file_id_vd)
-    print(run)
-
-    
 
     upload_to_vector_database(vector_store_file, file_id_vd)
     
