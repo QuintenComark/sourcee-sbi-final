@@ -21,6 +21,8 @@ open_ai_key = st.secrets["OPENAI_API_KEY"]
 #vector_store_id = os.environ.get("OPENAI_VECTOR_STORE_ID")
 #assistant_id = os.environ.get("HELPER_ASSISTANT_ID")
 
+email = st.session_state.email
+
 logo = 'https://nveil.ai/wp-content/uploads/2024/07/sourcee-logo-v2.png'
 
 openai.api_type = 'openai'

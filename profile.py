@@ -53,6 +53,8 @@ def verify_password(current_password):
         return False
     
     hashed_password = result[0]
+    print(current_password)
+    print(hashed_password)
     return bcrypt.checkpw(current_password.encode('utf-8'), hashed_password.encode('utf-8'))
     pass
 
