@@ -5,23 +5,21 @@ from sshtunnel import SSHTunnelForwarder
 import mysql.connector
 import bcrypt
 
+db_host = st.secrets['DB_HOST']
+db_user = st.secrets['DB_USER']
+db_password = st.secrets['DB_PASSWORD']
+db_name = st.secrets['DB_NAME']
+
 config = {
-  'host':'sourcee-users-db.mysql.database.azure.com',
-  'user':'qceuppens',
-  'password':'Nveil!Sourcee2024',
-  'database':'sbi-users'
+  'host':db_host,
+  'user':db_user,
+  'password':db_password,
+  'database':db_name
 }
 
 # Connect to the MySQL database
+
 def get_db_connection():
-    #return mysql.connector.connect(
-    #    host='ID438563_sourceesbi.db.webhosting.be',
-    #    user='ID438563_sourceesbi',
-    #    password='Nveil!Sourcee2024',
-    #    database='ID438563_sourceesbi'
-    #)
-
-
     
     try:
         conn = mysql.connector.connect(**config)
@@ -40,6 +38,7 @@ def get_db_connection():
 
 def fetch_credentials():
     conn = get_db_connection()
+   
     cursor = conn.cursor()
     cursor.execute("SELECT username, firstname, password, email FROM sbiusers")
     rows = cursor.fetchall()
@@ -82,8 +81,9 @@ authenticator = st.session_state.authenticator
 
 # Only run the login process if the user is not already authenticated
 if st.session_state.authentication_status is None:
-   
     
+
+
     name, authentication_status, username = authenticator.login("main")
     st.session_state.name = name
     st.session_state.authentication_status = authentication_status
@@ -95,9 +95,14 @@ if st.session_state.authentication_status is None:
 user_firstname = st.session_state.name
 
 
-# Check the authentication status and navigate accordingly
+#keep authentication_status on while cookie is present
+
+
+# Check the authentication status  and navigate accordingly
+
 if st.session_state.authentication_status:
     #set logout button in sidebar
+
     
     authenticator.logout('**Logout**', 'sidebar', key='unique_key')
     

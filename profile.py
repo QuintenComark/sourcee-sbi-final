@@ -9,11 +9,16 @@ st.title("Profile settings")
 logo = 'https://nveil.ai/wp-content/uploads/2024/07/sourcee-logo-v2.png'
 st.logo(logo)
 
+db_host = st.secrets['DB_HOST']
+db_user = st.secrets['DB_USER']
+db_password = st.secrets['DB_PASSWORD']
+db_name = st.secrets['DB_NAME']
+
 config = {
-  'host':'sourcee-users-db.mysql.database.azure.com',
-  'user':'qceuppens',
-  'password':'Nveil!Sourcee2024',
-  'database':'sbi-users'
+  'host':db_host,
+  'user':db_user,
+  'password':db_password,
+  'database':db_name
 }
 
 
